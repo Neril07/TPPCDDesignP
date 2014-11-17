@@ -43,13 +43,19 @@ public class Adapter implements eu.telecomnancy.sensor.ISensor
 	@Override
 	public void update() throws SensorNotActivatedException {
 		// TODO Auto-generated method stub
-		this.valeur = LS.getTemperature();
+		if (LS.getStatus() == true)
+			this.valeur = LS.getTemperature();
+		else 
+			throw new SensorNotActivatedException("Sensor must be activated before acquiring new values.");
 	}
 
 	@Override
 	public double getValue() throws SensorNotActivatedException {
 		// TODO Auto-generated method stub
-		return this.valeur;
+		if (LS.getStatus()==true)
+			return this.valeur;
+		else
+			throw new SensorNotActivatedException("Sensor must be activated before acquiring new values.");
 	}
 
 }
