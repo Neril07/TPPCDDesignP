@@ -12,7 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SensorView extends JPanel implements Observer {
+public class SensorView extends JPanel implements Observer
+{
 	private ISensor sensor;
 
 	private JLabel value = new JLabel("N/A °C");
@@ -20,9 +21,12 @@ public class SensorView extends JPanel implements Observer {
 	private JButton off = new JButton("Off");
 	private JButton update = new JButton("Acquire");
 
-	public SensorView(ISensor c) {
+	public SensorView(ISensor c)
+	{
+		
+		
 		this.sensor = c;
-		 ((Observable) this.sensor).addObserver((Observer)this);
+		((Observable) this.sensor).addObserver((Observer)this);
 		this.setLayout(new BorderLayout());
 
 		value.setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,7 +68,9 @@ public class SensorView extends JPanel implements Observer {
 		buttonsPanel.add(off);
 
 		this.add(buttonsPanel, BorderLayout.SOUTH);
-		
+
+
+
 	}
 
 	@Override
@@ -73,7 +79,7 @@ public class SensorView extends JPanel implements Observer {
 		// TODO Auto-generated method stub
 
 		try
-			{
+		{
 			this.value.setText(Double.toString(this.sensor.getValue()));
 		} catch (SensorNotActivatedException e) {
 			// TODO Auto-generated catch block
