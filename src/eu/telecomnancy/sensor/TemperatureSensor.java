@@ -1,10 +1,8 @@
 package eu.telecomnancy.sensor;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import eu.telecomnancy.Observable;
-import eu.telecomnancy.Observer;
 
 public class TemperatureSensor extends Observable implements ISensor
 {
